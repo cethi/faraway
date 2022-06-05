@@ -1,0 +1,14 @@
+version: "2"
+
+services:
+  server:
+    image: server:v1
+    ports:
+      - "3456:3456"
+    container_name: tcp_server
+
+  client:
+    image: client:v1
+    depends_on:
+      - "server"
+    container_name: tcp_client
